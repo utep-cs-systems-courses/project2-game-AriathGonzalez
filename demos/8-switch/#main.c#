@@ -33,7 +33,7 @@ switch_interrupt_handler()
   P1IES &= (p1val | ~SWITCHES);	/* if switch down, sense up or check for transition to up */
 
 /* up=red, down=green */
-  if (p2_in_read & SW1) {  // p1val & 0000 1000
+  if (p1val & SW1) {  // p1val & 0000 1000
     P1OUT |= LED_RED;
     P1OUT &= ~LED_GREEN;
   } else {
