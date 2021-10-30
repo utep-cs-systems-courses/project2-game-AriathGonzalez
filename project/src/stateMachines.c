@@ -8,6 +8,7 @@
 static int toggleRed = 0;
 static int toggleGreen = 0;
 
+// Red will be on for 1/4 of time, causing a dimness of 25%
 void redDim25()
 {
   switch (toggleRed){
@@ -28,6 +29,7 @@ void redDim25()
   }
 }
 
+// Red will be on for 1/2 of time, causing a dimness of 50%
 void redDim50()
 {
   switch (toggleRed){
@@ -50,6 +52,7 @@ void redDim50()
   }
 }
 
+// Red will be on for 3/4 of time, causing a dimness of 75%
 void redDim75()
 {
   switch(toggleRed){
@@ -71,6 +74,8 @@ void redDim75()
     break;
   }
 }
+
+// Green will be on for 1/4 of time, causing a dimness of 25%
 void greenDim25()
 {
   switch (toggleGreen){
@@ -91,6 +96,7 @@ void greenDim25()
   }
 }
 
+// Green will be on for 1/2 of time, causing a dimness of 50%
 void greenDim50()
 {
   switch (toggleGreen){
@@ -113,6 +119,7 @@ void greenDim50()
   }
 }
 
+// Green will be on for 3/4 of time, causing a dimness of 75%
 void greenDim75()
 {
   switch(toggleGreen){
@@ -135,63 +142,32 @@ void greenDim75()
   }
 }
 
-/*
-void dim_sequence()
-{
-  static int dimState = 0;
-
-  switch (dimState){
-  case 0:
-    redDim75();
-    greenDim25();
-    dimState++;
-    break;
-  case 1:
-    redDim25();
-    greenDim75();
-    dimState++;
-    break;
-  case 2:
-    redDim50();
-    greenDim50();
-    dimState = 0;
-    break;
-  default:
-    break;
-  }
-}
-*/
-
-// Try with an array instead
+// Play Overlord OP
 void playSong()
 {
-  static char currNote = 0;
+  static char currNote = 0;  // Keep track of state
+  // All notes of song
   int notes[15] = {GSHARP, GSHARP, 0, B, B, 0, ASHARP, ASHARP, ASHARP, A, 0, E, 0, DSHARP, 0};
   int n = 15;
 
-  // If oddPress, play song, otherwise, don't play anything
-  if (oddPress1 = 1){
-    // To go through array of notes
-    if (currNote < n){
-      buzzer_set_period(notes[currNote]);
-      currNote++;
-    }
-    else{
-      currNote = 0;
-    }
+  // To go through array of notes
+  if (currNote < n){
+    buzzer_set_period(notes[currNote]);
+    currNote++;
   }
+  // Reached end of song, therefore, time to reset
   else{
-    buzzer_set_period(0);
     currNote = 0;
   }
 }
 
+// Play Gerudo Valley while alternating LEDs
 void playSong2()
 {
   static char currNote = 0;
-
-  if (oddPress2 = 1){
-    switch(currNote){
+  
+  
+  switch(currNote){
     case 0:
       buzzer_set_period(CSHARP);
       altLEDS(1);
@@ -212,7 +188,7 @@ void playSong2()
       altLEDS(0);
       currNote++;
       break;
-    case 5:
+    case 5:  // Note will hold on for 2 periods
       buzzer_set_period(CSHARP);
       altLEDS(1);
       currNote++;
@@ -222,12 +198,12 @@ void playSong2()
       altLEDS(0);
       currNote++;
       break;
-    case 8:
+    case 8:  // Note will hold on for 2 periods
       buzzer_set_period(GSHARP);
       altLEDS(1);
       currNote++;
       break;
-    case 10:
+    case 10:  // Note will hold on for 4 periods
       buzzer_set_period(A);
       altLEDS(0);
       currNote++;
@@ -242,7 +218,7 @@ void playSong2()
       altLEDS(0);
       currNote++;
       break;
-    case 16:
+    case 16:  // Note will hold on for 2 periods
       buzzer_set_period(GSHARP);
       altLEDS(1);
       currNote++;
@@ -267,7 +243,7 @@ void playSong2()
       altLEDS(1);
       currNote++;
       break;
-    case 26:
+    case 26:  // Reached end of song, time to reset to beginning
       buzzer_set_period(0);
       ledsOn(0);
       currNote = 0;
@@ -276,16 +252,13 @@ void playSong2()
       currNote++;
       break;
    }
-  }
-  else {
-    buzzer_set_period(0);
-    currNote = 0;
-  }
 }
 
+// Play Green Hill Zone
 void playSong3()
 {
   static char currNote = 0;
+  // All notes of song, 0s are for break in between notes
   int notes[28] = {C, A, C, 0, B, 0, C, B, 0, G, G, G, 0, A, E, D, 0, C, 0, B, 0, C, B, 0, G, G, G,                   0};
   int n = 28;
 

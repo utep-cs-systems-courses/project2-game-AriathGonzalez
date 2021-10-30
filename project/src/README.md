@@ -25,8 +25,8 @@ Button 3:
 Button 4:
 
        Pressing button once: Will cause a dim sequence to start - red LED will
-       go from 75% -> 25% -> 50% while the green LED will go from 25% -> 75%
-       -> 50% dimness.
+       blink on and off from 75% -> 25% -> 50% dimness while the green LED wil
+       transition from 25% -> 75% -> 50% dimness.
        
        Pressing button again: Will stop the LEDS at their current sequence.
        

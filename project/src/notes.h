@@ -1,6 +1,9 @@
 #ifndef notes_included
 #define notes_included
 
+// Freq = 2Mhz / cycles; 2Mhz being the clock
+// Cycles = 2Mhz / freq <- what we have for the notes
+
 #define GSHARP 4819 
 #define B 4056
 #define ASHARP 4291

@@ -2,6 +2,7 @@
 #include "switches.h"
 #include "led.h"
 
+// To check if a button has been pressed
 sw1Down = 0;
 sw2Down = 0;
 sw3Down = 0;

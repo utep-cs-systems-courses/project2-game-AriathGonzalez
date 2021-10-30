@@ -13,6 +13,5 @@ void switch_interrupt_handler();
 
 extern int sw1Down, sw2Down, sw3Down, sw4Down;
 extern int oddPress1, oddPress2, oddPress3, oddPress4;
-//extern char switch_state_changed, button_state;
 
 #endif   // Included

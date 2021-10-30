@@ -1,5 +1,5 @@
 	.arch msp430g2553
-	.p2align 1.0
+	.p2align 1,0
 
 	.data
 dimState:	.word 0

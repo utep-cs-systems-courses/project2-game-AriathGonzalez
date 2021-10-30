@@ -4,13 +4,14 @@
 
 void led_init()
 {
+  // P1DIR <- Specifies bits for output
   P1DIR |= LEDS;   // Bits attached to leds are output
-  // switch_state_changed = 1;
   led_update();
 }
 
 void led_update()
 {
+  // P1OUT <- Provides 8 bits of data to output
   // LEDS start off
   P1OUT &= ~LEDS;
 }
