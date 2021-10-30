@@ -18,48 +18,33 @@ void led_update()
 void redOn(int on)
 {
   // 1 for on, 0 for off
-  switch(on){
-  case 0:
+  if (on == 0){
     P1OUT &= ~LED_RED;
-    break;
-  case 1:
+  }
+  else if (on == 1){
     P1OUT |= LED_RED;
-    break;
-  default:
-    P1OUT |= LEDS;
-    break;
   }
 }
 
 void greenOn(int on)
 {
   // 1 for on, 0 for off
-  switch(on){
-  case 0:
+  if (on == 0){
     P1OUT &= ~LED_GREEN;
-    break;
-  case 1:
+  }
+  else if (on == 1){
     P1OUT |= LED_GREEN;
-    break;
-  default:
-    P1OUT |= LEDS;
-    break;
   }
 }
 
 void ledsOn(int on)
 {
   // 1 for on, 0 for off
-  switch(on){
-  case 0:
+  if (on == 0){
     P1OUT &= ~LEDS;
-    break;
-  case 1:
+  }
+  else if (on == 1){
     P1OUT |= LEDS;
-    break;
-  default:
-    P1OUT |= LEDS;
-    break;
   }
 }
 

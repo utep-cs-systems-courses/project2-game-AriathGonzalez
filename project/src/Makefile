@@ -11,14 +11,24 @@ AS              = msp430-elf-as
 all: led.elf 
 
 #additional rules for files
-led.elf: ${COMMON_OBJECTS} main.o switches.o stateMachines.o buzzer.o led.o wdInterruptHandler.o p2_interrupt_handler.o 
+led.elf: ${COMMON_OBJECTS} main.o switches.o stateMachines.o buzzer.o led.o wdInterruptHandler.o p2_interrupt_handler.o dim_sequence_c.o
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ ../lib/libTimer.a
+
+led2.elf: ${COMMON_OBJECTS} main.o switches.o stateMachines.o buzzer.o led.o wdInterruptHandler.o p2_interrupt_handler.o dim_sequence_s.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ ../lib/libTimer.a
 
 load: led.elf
 	msp430loader.sh led.elf
 
+load2: led2.elf
+	msp430loader.sh led.elf
+
 clean:
 	rm -f *.o *.c~ *.h~ *~ *.c# *.elf
+
+dim_sequence_c.o: led.h stateMachines.h
+
+dim_sequence_s.o: led.h stateMachines.h
 
 led.o: led.c led.h
 

@@ -51,24 +51,15 @@ void switch_interrupt_handler()
     oddPress2 = 0, oddPress3 = 0, oddPress4 = 0;
   }
   else if (prev2 != sw2Down && sw2Down){
-    oddPress2 ^=1;
+    oddPress2 ^= 1;
     oddPress1 = 0, oddPress3 = 0, oddPress4 = 0;
   }
   else if (prev3 != sw3Down && sw3Down){
-    oddPress3 ^=1;
+    oddPress3 ^= 1;
     oddPress1 = 0, oddPress2 = 0, oddPress4 = 0;
   }
   else if (prev4 != sw4Down && sw4Down){
-    oddPress4 ^=1;
+    oddPress4 ^= 1;
     oddPress1 = 0, oddPress2 = 0, oddPress3 = 0;
   }
-  /*
-  if ((p2val & SW1) == 0)   // Button 1 pressed
-    button_state = 0;
-  else if ((p2val & SW2) == 0)   // Button 2 pressed
-    button_state = 1;
-  else if ((p2val & SW3) == 0)   // Button 3 pressed
-    button_state = 2;
-  else if ((p2val & SW4) == 0)   // Button 4 pressed
-  button_state = 3;*/
 }
