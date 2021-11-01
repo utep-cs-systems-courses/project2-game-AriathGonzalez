@@ -44,5 +44,3 @@ switches.o: switches.h led.h
 
 main.o: led.h switches.h led.h
 
-wdInterruptHandler.o:  led.h switches.h buzzer.h
-
