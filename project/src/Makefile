@@ -21,7 +21,7 @@ load: led.elf
 	msp430loader.sh led.elf
 
 load2: led2.elf
-	msp430loader.sh led.elf
+	msp430loader.sh led2.elf
 
 clean:
 	rm -f *.o *.c~ *.h~ *~ *.c# *.elf
